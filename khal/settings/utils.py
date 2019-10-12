@@ -20,6 +20,7 @@
 # WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #
 
+import datetime as dt
 import glob
 import logging
 import os
@@ -228,8 +229,8 @@ def config_checks(
                     'type': _get_vdir_type(vdir),
                     'readonly': False,
                     'priority': 10,
-                    'default_duration_date': '1d',
-                    'default_duration_datetime': '1h'
+                    'default_duration_date': dt.timedelta(days=1),
+                    'default_duration_datetime': dt.timedelta(seconds=3600)
                     }
 
         # get color from config if not defined in vdir
