@@ -26,9 +26,13 @@ class TestSettings(object):
         comp_config = {
             'calendars': {
                 'home': {'path': os.path.expanduser('~/.calendars/home/'),
-                         'readonly': False, 'color': None, 'priority': 10, 'type': 'calendar'},
+                         'readonly': False, 'color': None, 'priority': 10, 'type': 'calendar',
+                         'default_duration_date': dt.timedelta(days=1),
+                         'default_duration_datetime': dt.timedelta(seconds=3600)},
                 'work': {'path': os.path.expanduser('~/.calendars/work/'),
-                         'readonly': False, 'color': None, 'priority': 10, 'type': 'calendar'},
+                         'readonly': False, 'color': None, 'priority': 10, 'type': 'calendar',
+                         'default_duration_date': dt.timedelta(days=1),
+                         'default_duration_datetime': dt.timedelta(seconds=3600)},
             },
             'sqlite': {'path': os.path.expanduser('~/.local/share/khal/khal.db')},
             'locale': LOCALE_BERLIN,
@@ -37,7 +41,7 @@ class TestSettings(object):
                 'print_new': 'False',
                 'highlight_event_days': False,
                 'timedelta': dt.timedelta(days=2),
-                'show_all_days': False,
+                'show_all_days': False
             }
         }
         for key in comp_config:
@@ -61,10 +65,61 @@ class TestSettings(object):
             'calendars': {
                 'home': {'path': os.path.expanduser('~/.calendars/home/'),
                          'color': 'dark green', 'readonly': False, 'priority': 20,
-                         'type': 'calendar'},
+                         'type': 'calendar',
+                         'default_duration_date': dt.timedelta(days=1),
+                         'default_duration_datetime': dt.timedelta(seconds=3600)},
                 'work': {'path': os.path.expanduser('~/.calendars/work/'),
                          'readonly': True, 'color': None, 'priority': 10,
-                         'type': 'calendar'}},
+                         'type': 'calendar',
+                         'default_duration_date': dt.timedelta(days=1),
+                         'default_duration_datetime': dt.timedelta(seconds=3600)}},
+            'sqlite': {'path': os.path.expanduser('~/.local/share/khal/khal.db')},
+            'locale': {
+                'local_timezone': get_localzone(),
+                'default_timezone': get_localzone(),
+                'timeformat': '%X',
+                'dateformat': '%x',
+                'longdateformat': '%x',
+                'datetimeformat': '%c',
+                'longdatetimeformat': '%c',
+                'firstweekday': 0,
+                'unicode_symbols': True,
+                'weeknumbers': False,
+            },
+            'default': {
+                'default_calendar': None,
+                'print_new': 'False',
+                'highlight_event_days': False,
+                'timedelta': dt.timedelta(days=2),
+                'show_all_days': False
+            }
+        }
+        for key in comp_config:
+            assert config[key] == comp_config[key]
+
+    def test_default_durations(self):
+        config = get_config(
+            PATH + 'default_durations.conf',
+            _get_color_from_vdir= lambda x: None,
+            _get_vdir_type=lambda x: 'calendar',
+        )
+        comp_config = {
+            'calendars': {
+                'home': {'path': os.path.expanduser('~/.calendars/home/'),
+                         'color': 'dark green', 'readonly': False, 'priority': 20,
+                         'type': 'calendar',
+                         'default_duration_date': dt.timedelta(days=4),
+                         'default_duration_datetime': dt.timedelta(seconds=3600)},
+                'work': {'path': os.path.expanduser('~/.calendars/work/'),
+                         'readonly': True, 'color': None, 'priority': 10,
+                         'type': 'calendar',
+                         'default_duration_date': dt.timedelta(days=1),
+                         'default_duration_datetime': dt.timedelta(seconds=2640)},
+                'sport': {'path': os.path.expanduser('~/.calendars/sport/'),
+                          'readonly': False, 'color': None, 'priority': 10,
+                          'type': 'calendar',
+	                        'default_duration_date': dt.timedelta(days=6, seconds=14400),
+                          'default_duration_datetime': dt.timedelta(seconds=3312)}},
             'sqlite': {'path': os.path.expanduser('~/.local/share/khal/khal.db')},
             'locale': {
                 'local_timezone': get_localzone(),
@@ -226,6 +281,8 @@ def test_config_checks(metavdirs):
                 'readonly': False,
                 'type': 'calendar',
                 'priority': 10,
+                'default_duration_date': dt.timedelta(days=1),
+                'default_duration_datetime': dt.timedelta(seconds=3600)
             },
             'my calendar': {
                 'color': 'dark blue',
@@ -233,6 +290,8 @@ def test_config_checks(metavdirs):
                 'readonly': False,
                 'type': 'calendar',
                 'priority': 10,
+                'default_duration_date': dt.timedelta(days=1),
+                'default_duration_datetime': dt.timedelta(seconds=3600)
             },
             'my private calendar': {
                 'color': '#FF00FF',
@@ -240,6 +299,8 @@ def test_config_checks(metavdirs):
                 'readonly': False,
                 'type': 'calendar',
                 'priority': 10,
+                'default_duration_date': dt.timedelta(days=1),
+                'default_duration_datetime': dt.timedelta(seconds=3600)
             },
             'public': {
                 'color': None,
@@ -247,6 +308,8 @@ def test_config_checks(metavdirs):
                 'readonly': False,
                 'type': 'calendar',
                 'priority': 10,
+                'default_duration_date': dt.timedelta(days=1),
+                'default_duration_datetime': dt.timedelta(seconds=3600)
             },
             'public1': {
                 'color': None,
@@ -254,6 +317,8 @@ def test_config_checks(metavdirs):
                 'readonly': False,
                 'type': 'calendar',
                 'priority': 10,
+                'default_duration_date': dt.timedelta(days=1),
+                'default_duration_datetime': dt.timedelta(seconds=3600)
             },
             'work': {
                 'color': None,
@@ -261,6 +326,8 @@ def test_config_checks(metavdirs):
                 'readonly': False,
                 'type': 'calendar',
                 'priority': 10,
+                'default_duration_date': dt.timedelta(days=1),
+                'default_duration_datetime': dt.timedelta(seconds=3600)
             },
             'cfgcolor': {
                 'color': 'dark blue',
@@ -268,6 +335,8 @@ def test_config_checks(metavdirs):
                 'readonly': False,
                 'type': 'calendar',
                 'priority': 10,
+                'default_duration_date': dt.timedelta(days=1),
+                'default_duration_datetime': dt.timedelta(seconds=3600)
             },
             'dircolor': {
                 'color': 'dark blue',
@@ -275,6 +344,8 @@ def test_config_checks(metavdirs):
                 'readonly': False,
                 'type': 'calendar',
                 'priority': 10,
+                'default_duration_date': dt.timedelta(days=1),
+                'default_duration_datetime': dt.timedelta(seconds=3600)
             },
             'cfgcolor_again': {
                 'color': 'dark blue',
@@ -282,6 +353,8 @@ def test_config_checks(metavdirs):
                 'readonly': False,
                 'type': 'calendar',
                 'priority': 10,
+                'default_duration_date': dt.timedelta(days=1),
+                'default_duration_datetime': dt.timedelta(seconds=3600)
             },
             'cfgcolor_once_more': {
                 'color': 'dark blue',
@@ -289,6 +362,8 @@ def test_config_checks(metavdirs):
                 'readonly': False,
                 'type': 'calendar',
                 'priority': 10,
+                'default_duration_date': dt.timedelta(days=1),
+                'default_duration_datetime': dt.timedelta(seconds=3600)
             },
 
         },
