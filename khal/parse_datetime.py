@@ -316,8 +316,8 @@ def guesstimedeltafstr(delta_string):
 
 
 def guessrangefstr(daterange, locale,
-                   default_timedelta_date,
-                   default_timedelta_datetime,
+                   default_timedelta_date=dt.timedelta(days=1),
+                   default_timedelta_datetime=dt.timedelta(hours=1),
                    adjust_reasonably=False,
                    ):
     """parses a range string
@@ -438,6 +438,10 @@ def eventinfofstr(info_string, locale, default_duration_date, default_duration_d
     :type info_string: string fitting the form
     :param locale:
     :type locale: locale
+    :param default_duration_date: default allday duration from config
+    :type default_duration_date: datetime.timedelta
+    :param default_duration_datetime: default datetime duration from config
+    :type default_duration_datetime: datetime.timedelta
     :param adjust_reasonably:
     :type adjust_reasonably: passed on to guessrangefstr
     :rtype: dictionary
