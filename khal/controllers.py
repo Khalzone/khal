@@ -282,7 +282,10 @@ def new_interactive(collection, calendar_name, conf, info, location=None,
                     format=None, env=None):
     try:
         info = parse_datetime.eventinfofstr(
-            info, conf['locale'], adjust_reasonably=True, localize=False,
+            info, conf['locale'],
+            conf['calendars'][calendar_name]['default_duration_date'],
+            conf['calendars'][calendar_name]['default_duration_datetime'],
+            adjust_reasonably=True, localize=False,
         )
     except DateTimeParseError:
         info = dict()
