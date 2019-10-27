@@ -231,7 +231,7 @@ class Choice(urwid.PopUpLauncher):
     def active(self, val):
         self._active = val
         self.button = urwid.Button(self._decorate(self._active))
-        urwid.PopUpLauncher.__init__(self, self.button)
+        urwid.PopUpLauncher.__init__(self, urwid.AttrMap(self.button, 'list'))
         urwid.connect_signal(self.button, 'click',
                              lambda button: self.open_pop_up())
 
@@ -254,7 +254,7 @@ class ChoiceList(urwid.WidgetWrap):
         num = [num for num, elem in enumerate(parent.choices) if elem == parent.active][0]
         pile.set_focus(num)
         fill = urwid.Filler(pile)
-        urwid.WidgetWrap.__init__(self, urwid.AttrMap(fill, 'popupbg'))
+        urwid.WidgetWrap.__init__(self, urwid.AttrMap(fill, 'list'))
 
     def set_choice(self, button, account):
         self.parent.active = account
@@ -392,7 +392,7 @@ class ValidatedEdit(urwid.WidgetWrap):
     def __init__(self, *args, EditWidget=ExtendedEdit, validate=False, **kwargs):
         assert validate
         self._validate_func = validate
-        self._original_widget = urwid.AttrMap(EditWidget(*args, **kwargs), 'edit', 'editf')
+        self._original_widget = urwid.AttrMap(EditWidget(*args, **kwargs), 'edit', 'edit focused')
         super().__init__(self._original_widget)
 
     @property
@@ -406,12 +406,12 @@ class ValidatedEdit(urwid.WidgetWrap):
     def _validate(self):
         text = self.base_widget.get_edit_text()
         if self._validate_func(text):
-            self._original_widget.set_attr_map({None: 'edit'})
-            self._original_widget.set_focus_map({None: 'edit'})
+            self._original_widget.set_attr_map({None: 'edition validated'})
+            self._original_widget.set_focus_map({None: 'edition validated'})
             return True
         else:
-            self._original_widget.set_attr_map({None: 'alert'})
-            self._original_widget.set_focus_map({None: 'alert'})
+            self._original_widget.set_attr_map({None: 'list- for what ?-'})#####################todo
+            self._original_widget.set_focus_map({None: 'list- for what ?-'})###################todo
             return False
 
     def get_edit_text(self):
@@ -492,7 +492,7 @@ class DurationWidget(urwid.WidgetWrap):
             (2, urwid.Text('S')),
         ])
 
-        urwid.WidgetWrap.__init__(self, self.columns)
+        urwid.WidgetWrap.__init__(self, urwid.AttrMap(self.columns, 'theme color'))
 
     def get_timedelta(self):
         return dt.timedelta(
@@ -526,7 +526,7 @@ class AlarmsEditor(urwid.WidgetWrap):
                 (10, urwid.Button('Delete', on_press=delete_handler, user_data=self)),
             ])
 
-            urwid.WidgetWrap.__init__(self, self.columns)
+            urwid.WidgetWrap.__init__(self, urwid.AttrMap(self.columns, 'theme color'))
 
         def get_alarm(self):
             direction = self.direction.active
@@ -544,7 +544,7 @@ class AlarmsEditor(urwid.WidgetWrap):
             [self.AlarmEditor(a, self.remove_alarm) for a in event.alarms] +
             [urwid.Columns([(12, urwid.Button('Add', on_press=self.add_alarm))])])
 
-        urwid.WidgetWrap.__init__(self, self.pile)
+        urwid.WidgetWrap.__init__(self, urwid.AttrMap(self.pile, 'theme color'))
 
     def add_alarm(self, button):
         self.pile.contents.insert(
@@ -605,21 +605,21 @@ class FocusLineBoxWidth(urwid.WidgetDecoration, urwid.WidgetWrap):
             focus_item=1,
         )
 
-        urwid.WidgetDecoration.__init__(self, widget)
-        urwid.WidgetWrap.__init__(self, self._all)
+        urwid.WidgetDecoration.__init__(self, urwid.AttrMap(widget, 'alert- for what ?-'))
+        urwid.WidgetWrap.__init__(self, urwid.AttrMap(self._all, 'for what ?'))
 
     def render(self, size, focus):
         inner = self._all.contents[1][0]
         if focus:
-            self._all.contents[0] = (self._topline_focus, ('pack', None))
-            inner.contents[0] = (self._vline_focus, ('given', 1, False))
-            inner.contents[2] = (self._vline_focus, ('given', 1, False))
-            self._all.contents[2] = (self._bottomline_focus, ('pack', None))
+            self._all.contents[0] = (self._topline_focus, ('pack- for what ?-', None))
+            inner.contents[0] = (self._vline_focus, ('given- for what ?-', 1, False))
+            inner.contents[2] = (self._vline_focus, ('given- for what ?-', 1, False))
+            self._all.contents[2] = (self._bottomline_focus, ('pack- for what ?-', None))
         else:
-            self._all.contents[0] = (self._topline, ('pack', None))
-            inner.contents[0] = (self._vline, ('given', 1, False))
-            inner.contents[2] = (self._vline, ('given', 1, False))
-            self._all.contents[2] = (self._bottomline, ('pack', None))
+            self._all.contents[0] = (self._topline, ('pack- for what ?-', None))
+            inner.contents[0] = (self._vline, ('given- for what ?-', 1, False))
+            inner.contents[2] = (self._vline, ('given- for what ?-', 1, False))
+            self._all.contents[2] = (self._bottomline, ('pack- for what ?-', None))
         return super().render(size, focus)
 
 
@@ -633,14 +633,14 @@ class FocusLineBoxColor(urwid.WidgetDecoration, urwid.WidgetWrap):
                 hline,
                 ('fixed', 1, urwid.Text('┐')),
             ]),
-            'frame')
+            'alert')
         self._bottomline = urwid.AttrMap(
             urwid.Columns([
                 ('fixed', 1, urwid.Text('└')),
                 hline,
                 ('fixed', 1, urwid.Text('┘')),
             ]),
-            'frame')
+            'alert')
 
         self._middle = urwid.Columns(
             [('fixed', 1, self._vline), widget, ('fixed', 1, self._vline)],
@@ -651,16 +651,18 @@ class FocusLineBoxColor(urwid.WidgetDecoration, urwid.WidgetWrap):
             focus_item=1,
         )
 
-        urwid.WidgetWrap.__init__(self, self._all)
-        urwid.WidgetDecoration.__init__(self, widget)
+        urwid.WidgetWrap.__init__(self, urwid.AttrMap(self._all, 'alert'))
+        urwid.WidgetDecoration.__init__(self, urwid.AttrMap(widget, 'alert'))
 
     def render(self, size, focus):
         if focus:
-            self._middle.contents[0][0].set_attr_map({None: 'frame focus color'})
+            #self._middle.contents[0][0].set_attr_map({None: 'frame focus color'})
+            self._middle.contents[0][0].urwid.AttrMap(None, 'alert')
             self._all.contents[0][0].set_attr_map({None: 'frame focus color'})
             self._all.contents[2][0].set_attr_map({None: 'frame focus color'})
         else:
-            self._middle.contents[0][0].set_attr_map({None: 'frame'})
+            #self._middle.contents[0][0].set_attr_map({None: 'frame'})
+            self._middle.contents[0][0].urwid.AttrMap(None, 'alert')
             self._all.contents[0][0].set_attr_map({None: 'frame'})
             self._all.contents[2][0].set_attr_map({None: 'frame'})
         return super().render(size, focus)
@@ -670,8 +672,8 @@ class FocusLineBoxTop(urwid.WidgetDecoration, urwid.WidgetWrap):
     def __init__(self, widget):
         topline = urwid.AttrMap(urwid.Divider('━'), 'frame')
         self._all = urwid.Pile([('flow', topline), widget], focus_item=1)
-        urwid.WidgetWrap.__init__(self, self._all)
-        urwid.WidgetDecoration.__init__(self, widget)
+        urwid.WidgetWrap.__init__(self, urwid.AttrMap(self._all, 'alert'))
+        urwid.WidgetDecoration.__init__(self,  urwid.AttrMap(widget, 'alert'))
 
     def render(self, size, focus):
         if focus:
