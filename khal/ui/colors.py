@@ -92,3 +92,87 @@ light = [
     ('editcp', 'black', 'light gray', 'standout'),
     ('popupbg', 'white', 'black', 'bold'),
 ]
+
+# +header-----------------------------------------
+# |    dayname        
+# |mon                 
+# |                
+# |      td           date header focused/selected 
+# |th
+# |               
+# |            
+# |name
+# |
+# |           
+# |
+# +footer------------------------------------------
+
+backgcolor = 'h0'
+themecolor = 'h2'
+activecolor = 'h11'
+visiblecolor = 'h9'
+
+"""256 colors theme"""
+colors256 = [
+    #fixed elements 
+    ('header', '', '', '', themecolor, backgcolor, ),  #ok
+    ('footer', '', '','', themecolor, backgcolor, ),  #ok
+    ('dayname', '', '','', themecolor, backgcolor, ),  #ok
+    ('monthname', '', '','', themecolor, backgcolor, ),  #ok
+    ('today', '', '', '', activecolor, backgcolor, ),  # td 
+    ('date header', '', '', '', themecolor, backgcolor, ),  #ok
+
+    #selected elements 
+    ('date header focused', '', '', '', backgcolor, activecolor, ),  #ok
+    ('date header selected', '', '','', activecolor, backgcolor, ),  #ok
+    ('reveal focus', '', '', '', backgcolor, activecolor, ),  #ok
+    ('today focus', '', '', '', backgcolor, activecolor, ),  #td
+
+    # ikhal editor panel
+    ('edit', '', '', '', activecolor, backgcolor, ),  #ok
+    ('edit focused', '', '', '', backgcolor, activecolor, ),
+    ('popupbg', '', '', '', themecolor, backgcolor ), # < and > 
+    ('list', '', '', '', activecolor, backgcolor, ),
+    ('edition validated', '', '', '', themecolor, backgcolor, ),
+
+# +header--------------------
+# |      
+# |Title:  edit
+# |< calendars > 
+# |
+# |Location:  edit/edit focused
+# |Categories:  edit/edit focused
+# |Description:  edit/edit focused
+# |[ ] Alldays
+# |From: edit/edit focused/edition validated
+# |To: edit/edit focused/edition validated
+# |[ ] Repeat: < weekly > every:1
+# |             <list>
+# |
+# |
+
+# line header = text to edit
+    
+    ('list focused', '', '', '', visiblecolor, backgcolor, ),
+    ('frame', '', '', '', visiblecolor, visiblecolor, ),
+    ('frame focus color', '', '', '', visiblecolor, visiblecolor, ),
+    ('frame focus top', 'dark magenta', 'black'),
+    ('alert', '', '', '', visiblecolor, visiblecolor, ),
+    ('theme color', '', '', '', themecolor, backgcolor, ),
+
+    # Unknown impact
+    ('line header', '', '', '', visiblecolor, visiblecolor, ), 
+    ('weeknumber_right', 'light red', '', ),
+    ('weeknumber_left', 'yellow', '', ),
+    ('mark', 'light green', 'light green', ),
+    ('bright', 'light green', 'light red', ('bold', 'standout', )),
+
+    # Never called elements
+    ('frame focus', 'light red', 'black', ),
+    ('editfc', 'white', 'light red', 'bold'),
+    ('editbx', '', '', '', visiblecolor, visiblecolor, ),
+    ('editcp', 'black', 'light red', 'standout'),
+    ('default_color', '', '', '', visiblecolor, visiblecolor, ), 
+    ('button', 'black', 'light blue', ),
+    ('button focused', 'yellow', 'dark green', 'bold', ),
+]
