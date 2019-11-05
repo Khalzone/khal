@@ -124,7 +124,112 @@ light = [
     ('editcp', 'black', 'light gray', 'standout'),
     ('popupbg', 'white', 'black', 'bold'),
 ]
-"""256 colors theme"""
+# variables for the easy theme
+easyblack = 'black'
+easywhite = 'white'
+easylightgray = 'light gray'
+easydarkgray = 'dark gray'
+easylightcyan = 'light cyan'
+easydarkcyan = 'dark cyan'
+easylightmagenta = 'light magenta'
+easydarkmagenta = 'dark magenta'
+easylightgreen = 'light green'
+easydarkgreen = 'dark green'
+easylightblue = 'light blue'
+easydarkblue = 'dark blue'
+easylightred= 'light red'
+easyred= 'red'
+easy = [
+    #ikhal fixed elements
+    ('header', easywhite, easyblack),
+    ('footer', easywhite, easyblack),
+    ('dayname', easylightgray, ''),
+    ('monthname', easylightgray, ''),
+    ('today', easydarkgray, easydarkgreen,),
+    ('date header', easylightgray, easyblack),
+
+    #ikhal selected elements
+    ('date header focused', easyblack, easywhite),
+    ('date header selected', easydarkgray, easylightgray),
+    ('reveal focus', easyblack, easylightgray),
+    ('today focus', easywhite, easydarkmagenta),
+
+    #ikhal editor panel
+    ('edit', easyblack, easywhite),
+    ('edit focused', easywhite, easydarkcyan, 'bold'),
+    ('popupbg', easywhite, easyblack, 'bold'),
+    ('list', easyblack, easywhite),
+
+    ('list focused', easywhite, easydarkcyan, 'bold'),
+    ('frame', easywhite, easyblack),
+    ('frame focus color', easylightred, easyblack),
+    ('frame focus top', easydarkmagenta, easyblack),
+
+    # Unknown impact
+    ('alert', easywhite, easydarkgreen),
+    ('line header', easyblack, easywhite, 'bold'),
+    ('weeknumber_right', easylightgray, ''),
+    ('mark', easywhite, easydarkgreen),
+    ('bright', easydarkgreen, easywhite, ('bold', 'standout')),
+
+    # Never called elements
+    ('frame focus', easylightred, easyblack),
+    ('editfc', easywhite, easydarkblue, 'bold'),
+    ('editbx', easylightgray, easydarkblue),
+    ('editcp', easyblack, easylightgray, 'standout'),
+    ('button', easyblack, easydarkcyan),
+    ('button focused', easywhite, easylightblue, 'bold'),
+]
+# variables for colors256 theme
+backgcolor = 'h0'
+themecolor = 'h2'
+activecolor = 'h11'
+visiblecolor = 'h9'
+colors256 = [
+    #fixed elements
+    ('header', '', '', '', themecolor, backgcolor, ),
+    ('footer', '', '','', themecolor, backgcolor, ),
+    ('dayname', '', '','', themecolor, backgcolor, ),
+    ('monthname', '', '','', themecolor, backgcolor, ),
+    ('today', '', '', '', activecolor, backgcolor, ),
+    ('date header', '', '', '', themecolor, backgcolor, ),
+
+    #selected elements
+    ('date header focused', '', '', '', backgcolor, activecolor, ),
+    ('date header selected', '', '','', activecolor, backgcolor, ),
+    ('reveal focus', '', '', '', backgcolor, activecolor, ),
+    ('today focus', '', '', '', backgcolor, activecolor, ),
+
+    # ikhal editor panel
+    ('edit', '', '', '', activecolor, backgcolor, ),
+    ('edit focused', '', '', '', backgcolor, activecolor, ),
+    ('popupbg', '', '', '', themecolor, backgcolor ),
+    ('list', '', '', '', activecolor, backgcolor, ),
+    ('edition validated', '', '', '', themecolor, backgcolor, ),
+
+    ('list focused', '', '', '', visiblecolor, backgcolor, ),
+    ('frame', '', '', '', visiblecolor, visiblecolor, ),
+    ('frame focus color', '', '', '', visiblecolor, visiblecolor, ),
+    ('frame focus top', 'dark magenta', 'black'),
+
+    # Unknown impact
+    ('alert', 'light red', 'light red', 'light red', visiblecolor, backgcolor, ),
+    ('line header', '', '', '', visiblecolor, visiblecolor, ),
+    ('weeknumber_right', 'light red', '', ),
+    ('mark', 'light green', 'light green', ),
+    ('bright', 'light green', 'light red', ('bold', 'standout', )),
+
+    # Never called elements
+    ('frame focus', 'light red', 'black', ),
+    ('editfc', 'white', 'light red', 'bold'),
+    ('editbx', '', '', '', visiblecolor, visiblecolor, ),
+    ('editcp', 'black', 'light red', 'standout'),
+    ('button', 'black', 'light blue', ),
+    ('button focused', 'yellow', 'dark green', 'bold', ),
+]
+
+
+# 256 colors theme
 backgcolor = 'h0'
 themecolor = 'h2'
 activecolor = 'h11'
