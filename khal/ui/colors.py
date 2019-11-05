@@ -94,16 +94,16 @@ light = [
 ]
 
 # +header-----------------------------------------
-# |    dayname        
-# |mon                 
-# |                
-# |      td           date header focused/selected 
+# |    dayname
+# |mon
+# |
+# |      td           date header focused/selected
 # |th
-# |               
-# |            
+# |
+# |
 # |name
 # |
-# |           
+# |
 # |
 # +footer------------------------------------------
 
@@ -114,31 +114,31 @@ visiblecolor = 'h9'
 
 """256 colors theme"""
 colors256 = [
-    #fixed elements 
-    ('header', '', '', '', themecolor, backgcolor, ),  #ok
-    ('footer', '', '','', themecolor, backgcolor, ),  #ok
-    ('dayname', '', '','', themecolor, backgcolor, ),  #ok
-    ('monthname', '', '','', themecolor, backgcolor, ),  #ok
-    ('today', '', '', '', activecolor, backgcolor, ),  # td 
-    ('date header', '', '', '', themecolor, backgcolor, ),  #ok
+    #fixed elements
+    ('header', '', '', '', themecolor, backgcolor, ),
+    ('footer', '', '','', themecolor, backgcolor, ),
+    ('dayname', '', '','', themecolor, backgcolor, ),
+    ('monthname', '', '','', themecolor, backgcolor, ),
+    ('today', '', '', '', activecolor, backgcolor, ),
+    ('date header', '', '', '', themecolor, backgcolor, ),
 
-    #selected elements 
-    ('date header focused', '', '', '', backgcolor, activecolor, ),  #ok
-    ('date header selected', '', '','', activecolor, backgcolor, ),  #ok
-    ('reveal focus', '', '', '', backgcolor, activecolor, ),  #ok
-    ('today focus', '', '', '', backgcolor, activecolor, ),  #td
+    #selected elements
+    ('date header focused', '', '', '', backgcolor, activecolor, ),
+    ('date header selected', '', '','', activecolor, backgcolor, ),
+    ('reveal focus', '', '', '', backgcolor, activecolor, ),
+    ('today focus', '', '', '', backgcolor, activecolor, ),
 
     # ikhal editor panel
-    ('edit', '', '', '', activecolor, backgcolor, ),  #ok
+    ('edit', '', '', '', activecolor, backgcolor, ),
     ('edit focused', '', '', '', backgcolor, activecolor, ),
-    ('popupbg', '', '', '', themecolor, backgcolor ), # < and > 
+    ('popupbg', '', '', '', themecolor, backgcolor ),
     ('list', '', '', '', activecolor, backgcolor, ),
     ('edition validated', '', '', '', themecolor, backgcolor, ),
 
 # +header--------------------
-# |      
+# |
 # |Title:  edit
-# |< calendars > 
+# |< calendars >
 # |
 # |Location:  edit/edit focused
 # |Categories:  edit/edit focused
@@ -149,19 +149,17 @@ colors256 = [
 # |[ ] Repeat: < weekly > every:1
 # |             <list>
 # |
-# |
 
 # line header = text to edit
-    
+
     ('list focused', '', '', '', visiblecolor, backgcolor, ),
     ('frame', '', '', '', visiblecolor, visiblecolor, ),
     ('frame focus color', '', '', '', visiblecolor, visiblecolor, ),
     ('frame focus top', 'dark magenta', 'black'),
-    ('alert', '', '', '', visiblecolor, visiblecolor, ),
-    ('theme color', '', '', '', themecolor, backgcolor, ),
 
     # Unknown impact
-    ('line header', '', '', '', visiblecolor, visiblecolor, ), 
+    ('alert', 'light red', 'light red', 'light red', visiblecolor, backgcolor, ),
+    ('line header', '', '', '', visiblecolor, visiblecolor, ),
     ('weeknumber_right', 'light red', '', ),
     ('weeknumber_left', 'yellow', '', ),
     ('mark', 'light green', 'light green', ),
@@ -172,7 +170,6 @@ colors256 = [
     ('editfc', 'white', 'light red', 'bold'),
     ('editbx', '', '', '', visiblecolor, visiblecolor, ),
     ('editcp', 'black', 'light red', 'standout'),
-    ('default_color', '', '', '', visiblecolor, visiblecolor, ), 
     ('button', 'black', 'light blue', ),
     ('button focused', 'yellow', 'dark green', 'bold', ),
 ]
