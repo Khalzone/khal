@@ -19,6 +19,38 @@
 # OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 # WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
+# ikhal screen
+# +header-----------------------------------------
+# |    dayname
+# |mon
+# |
+# |      td           date header focused/selected
+# |th
+# |
+# |
+# |name
+# |
+# |
+# |
+# +footer------------------------------------------
+
+# new event screen
+# +header--------------------
+# |
+# |Title:  edit
+# |< calendars >
+# |
+# |Location:  edit/edit focused
+# |Categories:  edit/edit focused
+# |Description:  edit/edit focused
+# |[ ] Alldays
+# |From: edit/edit focused/edition validated
+# |To: edit/edit focused/edition validated
+# |[ ] Repeat: < weekly > every:1
+# |             <list>
+# |
+# ---------------------------
+# line header = text to edit
 
 dark = [
     ('header', 'white', 'black'),
@@ -92,27 +124,11 @@ light = [
     ('editcp', 'black', 'light gray', 'standout'),
     ('popupbg', 'white', 'black', 'bold'),
 ]
-
-# +header-----------------------------------------
-# |    dayname
-# |mon
-# |
-# |      td           date header focused/selected
-# |th
-# |
-# |
-# |name
-# |
-# |
-# |
-# +footer------------------------------------------
-
+"""256 colors theme"""
 backgcolor = 'h0'
 themecolor = 'h2'
 activecolor = 'h11'
 visiblecolor = 'h9'
-
-"""256 colors theme"""
 colors256 = [
     #fixed elements
     ('header', '', '', '', themecolor, backgcolor, ),
@@ -135,22 +151,6 @@ colors256 = [
     ('list', '', '', '', activecolor, backgcolor, ),
     ('edition validated', '', '', '', themecolor, backgcolor, ),
 
-# +header--------------------
-# |
-# |Title:  edit
-# |< calendars >
-# |
-# |Location:  edit/edit focused
-# |Categories:  edit/edit focused
-# |Description:  edit/edit focused
-# |[ ] Alldays
-# |From: edit/edit focused/edition validated
-# |To: edit/edit focused/edition validated
-# |[ ] Repeat: < weekly > every:1
-# |             <list>
-# |
-
-# line header = text to edit
 
     ('list focused', '', '', '', visiblecolor, backgcolor, ),
     ('frame', '', '', '', visiblecolor, visiblecolor, ),
