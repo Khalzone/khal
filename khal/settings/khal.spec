@@ -237,7 +237,6 @@ event_view_always_visible = boolean(default=False)
 #
 # __ http://urwid.org/manual/displayattributes.html
 # .. _github: # https://github.com/pimutils/khal/issues
-#theme = option('dark', 'light', default='dark')
 theme = option('dark', 'light', 'colors256', default='colors256')
 
 # Whether to show a visible frame (with *box drawing* characters) around some
