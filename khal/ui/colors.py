@@ -124,61 +124,46 @@ light = [
     ('editcp', 'black', 'light gray', 'standout'),
     ('popupbg', 'white', 'black', 'bold'),
 ]
-# variables for the easy theme
-easyblack = 'black'
-easywhite = 'white'
-easylightgray = 'light gray'
-easydarkgray = 'dark gray'
-easylightcyan = 'light cyan'
-easydarkcyan = 'dark cyan'
-easylightmagenta = 'light magenta'
-easydarkmagenta = 'dark magenta'
-easylightgreen = 'light green'
-easydarkgreen = 'dark green'
-easylightblue = 'light blue'
-easydarkblue = 'dark blue'
-easylightred= 'light red'
-easyred= 'red'
 easy = [
     #ikhal fixed elements
-    ('header', easywhite, easyblack),
-    ('footer', easywhite, easyblack),
-    ('dayname', easylightgray, ''),
-    ('monthname', easylightgray, ''),
-    ('today', easydarkgray, easydarkgreen,),
-    ('date header', easylightgray, easyblack),
+    ('header', 'white', 'black'),
+    ('footer', 'white', 'black'),
+    ('dayname', 'light gray', ''),
+    ('monthname', 'light gray', ''),
+    ('today', 'dark gray', 'dark green',),
+    ('date header', 'light gray', 'black'),
 
     #ikhal selected elements
-    ('date header focused', easyblack, easywhite),
-    ('date header selected', easydarkgray, easylightgray),
-    ('reveal focus', easyblack, easylightgray),
-    ('today focus', easywhite, easydarkmagenta),
+    ('date header focused', 'black', 'white'),
+    ('date header selected', 'dark gray', 'light gray'),
+    ('reveal focus', 'black', 'light gray'),
+    ('today focus', 'white', 'dark magenta'),
 
     #ikhal editor panel
-    ('edit', easyblack, easywhite),
-    ('edit focused', easywhite, easydarkcyan, 'bold'),
-    ('popupbg', easywhite, easyblack, 'bold'),
-    ('list', easyblack, easywhite),
+    ('edit', 'black', 'white'),
+    ('edit focused', 'white', 'dark cyan', 'bold'),
+    ('popupbg', 'white', 'black', 'bold'),
+    ('list', 'black', 'white'),
 
-    ('list focused', easywhite, easydarkcyan, 'bold'),
-    ('frame', easywhite, easyblack),
-    ('frame focus color', easylightred, easyblack),
-    ('frame focus top', easydarkmagenta, easyblack),
+    ('list focused', 'white', 'dark cyan', 'bold'),
+    ('frame', 'white', 'black'),
+    ('frame focus color', 'light red', 'black'),
+    ('frame focus top', 'dark magenta', 'black'),
 
     # Unknown impact
-    ('alert', easywhite, easydarkgreen),
-    ('line header', easyblack, easywhite, 'bold'),
-    ('weeknumber_right', easylightgray, ''),
-    ('mark', easywhite, easydarkgreen),
-    ('bright', easydarkgreen, easywhite, ('bold', 'standout')),
+    ('alert', 'white', 'dark green'),
+    ('line header', 'black', 'white', 'bold'),
+    ('weeknumber_right', 'light gray', ''),
+    ('mark', 'white', 'dark green'),
+    ('bright', 'dark green', 'white', ('bold', 'standout')),
 
     # Never called elements
-    ('frame focus', easylightred, easyblack),
-    ('editfc', easywhite, easydarkblue, 'bold'),
-    ('editbx', easylightgray, easydarkblue),
-    ('editcp', easyblack, easylightgray, 'standout'),
-    ('button', easyblack, easydarkcyan),
-    ('button focused', easywhite, easylightblue, 'bold'),
+    ('frame focus', 'light red', 'black'),
+    ('editfc', 'white', 'dark blue', 'bold'),
+    ('editbx', 'light gray', 'dark blue'),
+    ('editcp', 'black', 'light gray', 'standout'),
+    ('button', 'black', 'dark cyan'),
+    ('button focused', 'white', 'light blue', 'bold'),
 ]
 # variables for colors256 theme
 backgcolor = 'h0'
