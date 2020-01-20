@@ -92,7 +92,7 @@ light = [
     ('editcp', 'black', 'light gray', 'standout'),
     ('popupbg', 'white', 'black', 'bold'),
 ]
-defined_colors = [
+tango = [
     # ikhal calendar panel 
         #fixed elements 
     ('header', 'dark green', 'black'),  #ok

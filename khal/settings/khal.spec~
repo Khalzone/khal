@@ -241,8 +241,8 @@ theme = option('dark', 'light', 'defined_colors' default='defined_colors')
 
 # If theme defined_colors is chosen we have to get the value into the config file
 
-#fcolor = color(default="red") 
-#bgcolor = color(default="black")
+fcolor = color(default="red") 
+bgcolor = color(default="black")
 
 # Whether to show a visible frame (with *box drawing* characters) around some
 # (groups of) elements or not. There are currently several different frame

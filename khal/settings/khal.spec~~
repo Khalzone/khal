@@ -237,12 +237,8 @@ event_view_always_visible = boolean(default=False)
 #
 # __ http://urwid.org/manual/displayattributes.html
 # .. _github: # https://github.com/pimutils/khal/issues
-theme = option('dark', 'light', 'defined_colors' default='defined_colors')
-
-# If theme defined_colors is chosen we have to get the value into the config file
-
-#fcolor = color(default="red") 
-#bgcolor = color(default="black")
+#theme = option('dark', 'light', default='dark')
+theme = option('dark', 'light', 'colors256', default='colors256')
 
 # Whether to show a visible frame (with *box drawing* characters) around some
 # (groups of) elements or not. There are currently several different frame
@@ -297,4 +293,4 @@ multiple = color(default='')
 # Default color for calendars without color -- when set to '' it
 # actually disables highlighting for events that should use the
 # default color.
-default_color = color(default='')
+default_color = color(default='h0')
