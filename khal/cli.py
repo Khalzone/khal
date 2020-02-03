@@ -26,6 +26,8 @@ import stat
 import sys
 import textwrap
 from shutil import get_terminal_size
+import pdb
+import pudb; #pu.db
 
 import click
 import click_log
@@ -157,6 +159,8 @@ def build_collection(conf, selection):
     try:
         props = dict()
         for name, cal in conf['calendars'].items():
+            #pdb.set_trace()
+            #print(conf['view']['fgcolor'])
             if selection is None or name in selection:
                 props[name] = {
                     'name': name,
@@ -166,6 +170,9 @@ def build_collection(conf, selection):
                     'priority': cal['priority'],
                     'ctype': cal['type'],
                 }
+                #pu.db
+                #print(props[name])
+                #print(cal['color'])
         collection = khalendar.CalendarCollection(
             calendars=props,
             color=conf['highlight_days']['color'],
@@ -176,6 +183,8 @@ def build_collection(conf, selection):
             multiple=conf['highlight_days']['multiple'],
             highlight_event_days=conf['default']['highlight_event_days'],
         )
+        pdb
+        print('default_color')
     except FatalError as error:
         logger.debug(error, exc_info=True)
         logger.fatal(error)
@@ -198,9 +207,11 @@ def prepare_context(ctx, config):
 
     logger.debug('khal %s' % __version__)
     try:
+        #pdb.set_trace()
         conf = get_config(config)
     except NoConfigFile:
         conf = _NoConfig()
+        #print(conf)
     except InvalidSettingsError:
         logger.info('If your configuration file used to work, please have a '
                     'look at the Changelog to see what changed.')
@@ -210,7 +221,16 @@ def prepare_context(ctx, config):
         logger.debug(stringify_conf(conf))
 
     ctx.obj = {'conf_path': config, 'conf': conf}
-
+    pdb
+    print("Theme choisi : "+ ctx.obj['conf']['view']['theme'])
+    print("fgcolor choisi : "+ctx.obj['conf']['view']['fgcolor'])
+    if ctx.obj['conf']['view']['theme'] == 'user':
+        usertheme_conf( ctx.obj['conf']['view']['fgcolor'] , ctx.obj['conf']['view']['fgcolor'] )
+    #pu.db
+    #pdb.set_trace()
+def usertheme_conf(fg="white",bg="black"):
+    #print(ctx.obj['conf'])
+    pass
 
 def stringify_conf(conf):
     # since we have only two levels of recursion, a recursive function isn't
@@ -229,6 +249,8 @@ def stringify_conf(conf):
 
 
 def _get_cli():
+    #pu.db
+
     @click.group()
     @click_log.simple_verbosity_option('khal')
     @global_options
@@ -282,13 +304,18 @@ def _get_cli():
                 color=ctx.obj['conf']['highlight_days']['color'],
                 highlight_event_days=ctx.obj['conf']['default']['highlight_event_days'],
                 bold_for_light_color=ctx.obj['conf']['view']['bold_for_light_color'],
-                env={"calendars": ctx.obj['conf']['calendars']}
+                #fgcolor=ctx.obj['conf']['view']['fgcolor'],
+                env={"calendars": ctx.obj['conf']['calendars']},
             )
+        #pdb.set_trace()
             click.echo('\n'.join(rows))
         except FatalError as error:
             logger.debug(error, exc_info=True)
             logger.fatal(error)
             sys.exit(1)
+        #fgcolor=ctx.obj['conf']['view']['fgcolor'],
+        #print (ctx.obj['conf']['view']['fgcolor'])
+        #pdb.set_trace()
 
     @cli.command("list")
     @multi_calendar_option
@@ -483,6 +510,8 @@ def _get_cli():
             ),
             ctx.obj['conf']
         )
+        print(ctx.obj['conf']['view']['fgcolor'])
+        pdb.set_trace()
 
     @cli.command()
     @multi_calendar_option

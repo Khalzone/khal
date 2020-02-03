@@ -92,3 +92,45 @@ light = [
     ('editcp', 'black', 'light gray', 'standout'),
     ('popupbg', 'white', 'black', 'bold'),
 ]
+user = [
+    # ikhal calendar panel 
+        #fixed elements 
+    #('header', 'ctx.obj['conf']['view']['fgcolor'], 'black'),  #ok
+    ('header', 'light red', 'black'),  #ok
+    ('footer', 'black', 'dark green'),  #ok
+    ('title', 'yellow', 'yellow'),
+    ('dayname', 'dark green', 'black'),  #ok
+    ('monthname', 'dark green', 'black'),  #ok
+    ('today', 'light green', 'black',),  #ok?
+    ('date header', 'dark green', 'black'),  #ok
+        #selected elements 
+    ('date header focused', 'black', 'yellow'),  #ok
+    ('date header selected', 'yellow', 'black'),  #ok
+    ('reveal focus', 'black', 'yellow'),  #ok
+    ('today focus', 'yellow', 'black'),  #ok
+
+    # ikhal editor panel
+    ('edit', 'yellow', 'black'),  #ok
+    ('line header', 'black', 'dark green', 'bold'),  #ok
+    ('panel_base_color', 'black', 'dark green'),  #ok
+    
+#    ('bright', 'light green', 'light red', ('bold', 'standout')),
+#    ('list', 'black', 'light red'),
+#    ('list focused', 'light green', 'light green', 'bold'),
+#    ('edit focused', 'yellow', 'yellow', 'bold'),
+#    ('button', 'black', 'yellow'),
+    ('button focused', 'yellow', 'dark green', 'bold'),
+#
+#    ('weeknumber_right', 'light gray', ''),
+#    ('alert', 'yellow', 'yellow'),
+#    ('mark', 'light green', 'light green'),
+#    ('frame', 'light green', 'black'),
+#    ('frame focus', 'light red', 'black'),
+#    ('frame focus color', 'light green', 'black'),
+#    ('frame focus top', 'dark magenta', 'black'),
+#
+#    ('editfc', 'white', 'light red', 'bold'),
+#    ('editbx', 'light green', 'dark gray'),
+#    ('editcp', 'black', 'light red', 'standout'),
+#    ('popupbg', 'light green', 'black', 'bold'),
+]

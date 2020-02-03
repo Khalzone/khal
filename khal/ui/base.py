@@ -231,8 +231,8 @@ class Window(urwid.Frame):
         :type alert: str or (palette_entry, str)
         """
         self._header_is_warning = warn
-        pane_title = getattr(self._get_current_pane(), 'title', None)
-        text = []
+        pane_title = getattr(self._get_current_pane(), 'title', '')
+        text = [""]
 
         for part in (pane_title, alert):
             if part:

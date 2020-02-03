@@ -1240,6 +1240,7 @@ def _add_calendar_colors(palette, collection):
     :returns: the modified palette
     :rtype: list
     """
+    print(palette)
     for cal in collection.calendars:
         if cal['color'] == '':
             # No color set for this calendar, use default_color instead.
