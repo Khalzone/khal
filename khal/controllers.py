@@ -278,7 +278,7 @@ def khal_list(collection, daterange=None, conf=None, agenda_format=None,
 
 def new_interactive(collection, calendar_name, conf, info, location=None,
                     categories=None, repeat=None, until=None, alarms=None,
-                    format=None, env=None):
+                    format=None, env=None, url=None):
     try:
         info = parse_datetime.eventinfofstr(
             info, conf['locale'],
@@ -331,7 +331,7 @@ def new_interactive(collection, calendar_name, conf, info, location=None,
     event = new_from_args(
         collection, calendar_name, conf, format=format, env=env,
         location=location, categories=categories,
-        repeat=repeat, until=until, alarms=alarms,
+        repeat=repeat, until=until, alarms=alarms, url=url,
         **info)
 
     echo("event saved")
@@ -342,7 +342,7 @@ def new_interactive(collection, calendar_name, conf, info, location=None,
 
 def new_from_string(collection, calendar_name, conf, info, location=None,
                     categories=None, repeat=None, until=None, alarms=None,
-                    format=None, env=None):
+                    url=None, format=None, env=None):
     """construct a new event from a string and add it"""
     info = parse_datetime.eventinfofstr(
         info, conf['locale'],
@@ -353,14 +353,14 @@ def new_from_string(collection, calendar_name, conf, info, location=None,
     new_from_args(
         collection, calendar_name, conf, format=format, env=env,
         location=location, categories=categories, repeat=repeat,
-        until=until, alarms=alarms, **info
+        until=until, alarms=alarms, url=url, **info
     )
 
 
 def new_from_args(collection, calendar_name, conf, dtstart=None, dtend=None,
                   summary=None, description=None, allday=None, location=None,
                   categories=None, repeat=None, until=None, alarms=None,
-                  timezone=None, format=None, env=None):
+                  timezone=None, url=None, format=None, env=None):
     """Create a new event from arguments and add to vdirs"""
     if isinstance(categories, str):
         categories = list([category.strip() for category in categories.split(',')])
@@ -368,7 +368,7 @@ def new_from_args(collection, calendar_name, conf, dtstart=None, dtend=None,
         event = new_vevent(
             locale=conf['locale'], location=location, categories=categories,
             repeat=repeat, until=until, alarms=alarms, dtstart=dtstart,
-            dtend=dtend, summary=summary, description=description, timezone=timezone,
+            dtend=dtend, summary=summary, description=description, timezone=timezone, url=url,
         )
     except ValueError as error:
         raise FatalError(error)
